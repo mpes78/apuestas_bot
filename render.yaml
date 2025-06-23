@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: apuestas-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    cron:
+      - name: picks-diarios
+        schedule: "0 10 * * *"   # 10:00 a. m. Lima todos los días
+        command: "python bot.py"
